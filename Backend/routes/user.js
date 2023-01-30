@@ -98,7 +98,7 @@ router.post('/forgetpassword', (req, res) => {
     });
 })
 
-router.get('/getUsers', auth.authonticateToken, (req, res) => {
+router.get('/getUsers', auth.authonticateToken, checkRole.checkRole, (req, res) => {
 
     querySelectUsers = "SELECT * FROM `login` WHERE `role`='Employee'";
     connection.query(querySelectUsers, (err, result) => {
@@ -134,7 +134,7 @@ router.get('/checkToken', auth.authonticateToken, (req, res) => {
 
 router.post('/changePassword', auth.authonticateToken, (req, res) => {
     let reqBody = req.body;
-    query_upate = "UPDATE `login` SET `status`=? WHERE `id`=?";
+    query_upate = "UPDATE `login` SET `Password`=? WHERE `id`=?";
     connection.query(query_upate, [reqBody.status, reqBody.id], (err, result) => {
         if (!err) {
             if (result.affectedRows == 0) {
