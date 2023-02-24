@@ -1,0 +1,65 @@
+Sub procedure1
+'Defining VB Variable
+Dim MyString
+Dim IOT_Share_Alarms_Alarm_Array1
+Dim IOT_Share_Alarms_Alarm_Array2
+Dim IOT_Share_Alarms_Alarm_Array3
+Dim IOT_Share_Alarms_Alarm_Array4
+Dim IOT_Share_Alarms_Alarm_Array5
+Dim IOT_Share_Alarms_Alarm_Array6
+Dim IOT_Share_Alarms_Alarm_Array7
+Dim IOT_Share_Alarms_Alarm_Array8
+Dim IOT_Share_Alarms_Alarm_Array9
+Dim IOT_Share_Alarms_Alarm_Array10
+Dim IOT_Share_Downtime_Downtime_Complete
+Dim IOT_Share_Downtime_Downtime_Maintenance
+Dim IOT_Share_Downtime_Running_Shift_Number
+Dim IOT_Share_Downtime_Up_time_Full_Auto
+Dim IOT_Share_Downtime_Up_time_Manual
+Dim IOT_Share_Downtime_Up_time_Service
+Dim IOT_Share_Production_Production_Count
+
+IOT_Share_Alarms_Alarm_Array1=HMIRuntime.Tags("IOT_Share_Alarms_Alarm_Array[1]").Read
+
+ IOT_Share_Alarms_Alarm_Array2=HMIRuntime.Tags("IOT_Share_Alarms_Alarm_Array[2]").Read
+Msgbox "test3"
+ IOT_Share_Alarms_Alarm_Array3=HMIRuntime.Tags("IOT_Share_Alarms_Alarm_Array[3]").Read
+ IOT_Share_Alarms_Alarm_Array4=HMIRuntime.Tags("IOT_Share_Alarms_Alarm_Array[4]").Read
+ IOT_Share_Alarms_Alarm_Array5=HMIRuntime.Tags("IOT_Share_Alarms_Alarm_Array[5]").Read
+ IOT_Share_Alarms_Alarm_Array6=HMIRuntime.Tags("IOT_Share_Alarms_Alarm_Array[6]").Read
+ IOT_Share_Alarms_Alarm_Array7=HMIRuntime.Tags("IOT_Share_Alarms_Alarm_Array[7]").Read
+ IOT_Share_Alarms_Alarm_Array8=HMIRuntime.Tags("IOT_Share_Alarms_Alarm_Array[8]").Read
+ IOT_Share_Alarms_Alarm_Array9=HMIRuntime.Tags("IOT_Share_Alarms_Alarm_Array[9]").Read
+ IOT_Share_Alarms_Alarm_Array10=HMIRuntime.Tags("IOT_Share_Alarms_Alarm_Array[10]").Read
+ IOT_Share_Downtime_Downtime_Complete=HMIRuntime.Tags("IOT_Share_Downtime_Downtime_(Complete)").Read
+ IOT_Share_Downtime_Downtime_Maintenance=HMIRuntime.Tags("IOT_Share_Downtime_Downtime_(Maintenance)").Read
+ IOT_Share_Downtime_Running_Shift_Number=HMIRuntime.Tags("IOT_Share_Downtime_Running_Shift_Number").Read
+ IOT_Share_Downtime_Up_time_Full_Auto=HMIRuntime.Tags("IOT_Share_Downtime_Up_time_(Full_Auto)").Read
+ IOT_Share_Downtime_Up_time_Manual=HMIRuntime.Tags("IOT_Share_Downtime_Up_time_(Manual)").Read
+ IOT_Share_Downtime_Up_time_Service=HMIRuntime.Tags("IOT_Share_Downtime_Up_time_(Service)").Read
+ IOT_Share_Production_Production_Count=HMIRuntime.Tags("IOT_Share_Production_Production_Count").Read
+
+MsgBox IOT_Share_Downtime_Up_time_Service
+MyString="{"&"IOT_Share_Downtime_Up_time_Service"&":"&IOT_Share_Downtime_Up_time_Service
+MyString= MyString &","&"IOT_Share_Alarms_Alarm_Array2"&":"&IOT_Share_Alarms_Alarm_Array2
+
+MyString= MyString &","&"IOT_Share_Alarms_Alarm_Array3"&":"&IOT_Share_Alarms_Alarm_Array3
+MyString= MyString &","&"IOT_Share_Alarms_Alarm_Array4"&":"&IOT_Share_Alarms_Alarm_Array4
+MyString= MyString &","&"IOT_Share_Alarms_Alarm_Array5"&":"&IOT_Share_Alarms_Alarm_Array5
+MyString= MyString &","&"IOT_Share_Alarms_Alarm_Array6"&":"&IOT_Share_Alarms_Alarm_Array6
+MyString= MyString &","&"IOT_Share_Alarms_Alarm_Array7"&":"&IOT_Share_Alarms_Alarm_Array7
+MyString= MyString &","&"IOT_Share_Alarms_Alarm_Array8"&":"&IOT_Share_Alarms_Alarm_Array8
+MyString= MyString &","&"IOT_Share_Alarms_Alarm_Array9"&":"&IOT_Share_Alarms_Alarm_Array9
+MyString= MyString &","&"IOT_Share_Alarms_Alarm_Array10"&":"&IOT_Share_Alarms_Alarm_Array10
+MyString= MyString &","&"IOT_Share_Downtime_Downtime_Complete"&":"&IOT_Share_Downtime_Downtime_Complete
+MyString= MyString &","&"IOT_Share_Downtime_Downtime_Maintenance"&":"&IOT_Share_Downtime_Downtime_Maintenance
+MyString= MyString &","&"IOT_Share_Downtime_Running_Shift_Number"&":"&IOT_Share_Downtime_Running_Shift_Number
+MyString= MyString &","&"IOT_Share_Downtime_Up_time_Full_Auto"&":"&IOT_Share_Downtime_Up_time_Full_Auto
+MyString= MyString &","&"IOT_Share_Downtime_Up_time_Manual"&":"&IOT_Share_Downtime_Up_time_Manual
+MyString= MyString &","&"IOT_Share_Downtime_Up_time_Service"&":"&IOT_Share_Downtime_Up_time_Service
+MyString= MyString &","&"IOT_Share_Production_Production_Count"&":"&IOT_Share_Production_Production_Count&"}"
+
+MsgBox MyString
+HMIRuntime.Tags("MqttString").Write MyString
+End Sub
+
